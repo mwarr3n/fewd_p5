@@ -1,0 +1,64 @@
+html, body, #map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
+.search {
+	position: fixed;
+	top: 15px;
+	height: 20px;
+	width: 30%;
+	padding: 0 25px 0 25px;
+
+}
+
+.location {
+	position: fixed;
+	top: 55px;
+	width: 30%;
+	padding: 0 25px 0 25px;	
+}
+
+.list {
+	overflow-x: hidden;
+	display:block;
+	overflow:auto;
+	height: 300px;
+	margin: 15px 0 0 0;
+}
+
+.list-item {
+  border-bottom: 1px solid #dcdcdc;
+  padding: 5px 0 5px 0;
+}
+
+.selected-item {
+	background-color: #E6E6E6;
+}
+
+.no-data {
+	border-top: 1px solid #dcdcdc;
+	margin: 15px 0 0 0;
+	display:none;
+}
+
+@media only screen and (max-width : 768px) {
+	.search {
+		width: 100%;
+	}
+
+	.location {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width : 320px) {
+		.search {
+		width: 100%;
+	}
+
+	.location {
+		width: 100%;
+	}
+}

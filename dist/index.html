@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Udactiy P5</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="lib/bootstrap-3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/app.min.css">
+</head>
+
+<body>
+	<div id="map-canvas"></div>
+	
+	<div class="search">
+		<div class="input-group search-input">
+			<input type="text" class="form-control" placeholder="Filter on name..." data-bind="value: filter, valueUpdate: 'keyup'">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">
+					<i class="fa fa-lg fa-search"></i>
+				</button>
+			</span>
+		</div><!-- /input-group -->
+	</div>
+
+	<div id="id-location" class="location" >
+		<div class="well well-sm">
+		<div class="pull-left"><span data-bind="text: location"></div>
+		<div class="text-right"><i class="fa fa-lg" data-bind="css: {'fa-minus': isListVisible(),'fa-plus': !isListVisible()}, click: toggleList"></i></div>
+		
+			<div class="no-data" data-bind="if: itemsToShow().length == 0"><p class="bg-info">No data available..</p></div>
+			<div class="list" data-bind="visible: isListVisible,template: {foreach: itemsToShow}">
+				<div class="list-item" data-bind="click: function() { $parent.selectItem($data); }, css:{'selected-item':$data === $parent.selectedItem()}, attr:{id: id}">
+					<div data-bind="text: name"></div>
+					<div data-bind="text: address"></div>
+					<div>
+						<div class="pull-left">
+							<span data-bind="text: phone"></span>
+						</div>
+						<div class="text-center">
+							<span data-bind="text: rating" class="badge"></span>
+							<i class="fa fa-lg" data-bind="css:{'fa-smile-o': rating >= 4,'fa-meh-o': rating < 4}"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+	<script src="lib/jquery-2.1.3/jquery-2.1.3.min.js"></script>
+	<script src="lib/knockout-3.3.0/knockout-3.3.0.js"></script>
+	<script src="js/app.min.js"></script>
+
+</body>
+</html>
